@@ -1,0 +1,83 @@
+import re
+import gradio as gr
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+
+# ============================================================
+# CODEALPHA AI & ML FAQ CHATBOT
+# ============================================================
+
+faq_data = [
+    {
+        "question": "What is artificial intelligence?",
+        "answer": "Artificial Intelligence (AI) is a field of computer science that enables machines to perform tasks that normally require human intelligence."
+    },
+    {
+        "question": "What is AI used for?",
+        "answer": "AI is used for prediction, recommendation, language processing, image analysis, automation, and decision support."
+    },
+    {
+        "question": "How does artificial intelligence work?",
+        "answer": "AI systems process data, identify patterns, and use those patterns to make predictions, decisions, or generate outputs."
+    },
+    {
+        "question": "What are the advantages of AI?",
+        "answer": "AI can automate repetitive tasks, analyze large amounts of data, improve efficiency, and support faster decision-making."
+    },
+    {
+        "question": "What are the limitations of AI?",
+        "answer": "AI depends on the quality of its data and models and may produce incorrect results. It requires careful development and evaluation."
+    },
+    {
+        "question": "What is machine learning?",
+        "answer": "Machine learning is a branch of AI in which computers learn patterns from data and use those patterns to make predictions or decisions."
+    },
+    {
+        "question": "What are the types of machine learning?",
+        "answer": "The major types are supervised learning, unsupervised learning, and reinforcement learning."
+    },
+    {
+        "question": "What is supervised learning?",
+        "answer": "Supervised learning trains a model using labeled data so that it can learn to make predictions or classifications."
+    },
+    {
+        "question": "What is unsupervised learning?",
+        "answer": "Unsupervised learning works with unlabeled data and attempts to discover patterns, structures, or groups within that data."
+    },
+    {
+        "question": "What is reinforcement learning?",
+        "answer": "Reinforcement learning is an approach in which an agent learns by interacting with an environment and receiving rewards or penalties."
+    },
+    {
+        "question": "What is classification?",
+        "answer": "Classification is a supervised learning task that assigns an input to one of several predefined categories."
+    },
+    {
+        "question": "What is regression?",
+        "answer": "Regression is a supervised learning task used to predict continuous numerical values."
+    },
+    {
+        "question": "What is training data?",
+        "answer": "Training data is the data used to teach a machine learning model to learn patterns and relationships."
+    },
+    {
+        "question": "What is testing data?",
+        "answer": "Testing data is data kept separate from training data and used to evaluate how well the trained model performs."
+    },
+    {
+        "question": "What is deep learning?",
+        "answer": "Deep learning is a subset of machine learning that uses multi-layer neural networks to learn complex patterns from data."
+    },
+    {
+        "question": "What is a neural network?",
+        "answer": "A neural network is a computational model made of interconnected nodes or neurons that learn patterns from data."
+    },
+    {
+        "question": "What is a CNN?",
+        "answer": "CNN stands for Convolutional Neural Network. It is a deep learning architecture commonly used for image and visual data."
+    },
+    {
+        "question": "What is natural language processing?",
+        "answer": "Natural Language Processing (NLP) is a field of AI that enables computers to process, understand, and work with human language."
+    },
