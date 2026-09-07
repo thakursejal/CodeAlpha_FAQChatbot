@@ -81,3 +81,65 @@ faq_data = [
         "question": "What is natural language processing?",
         "answer": "Natural Language Processing (NLP) is a field of AI that enables computers to process, understand, and work with human language."
     },
+    ,
+    {
+        "question": "What is a dataset?",
+        "answer": "A dataset is a collection of data used to train, test, and evaluate machine learning models."
+    },
+    {
+        "question": "What is an AI model?",
+        "answer": "An AI model is a computational model trained on data to recognize patterns and make predictions or generate outputs."
+    },
+    {
+        "question": "What is overfitting?",
+        "answer": "Overfitting occurs when a machine learning model learns the training data too closely and performs poorly on new, unseen data."
+    },
+    {
+        "question": "What is underfitting?",
+        "answer": "Underfitting occurs when a model is too simple to learn the important patterns in the training data."
+    },
+    {
+        "question": "What is an epoch?",
+        "answer": "An epoch is one complete pass through the entire training dataset during model training."
+    },
+    {
+        "question": "What is a feature in machine learning?",
+        "answer": "A feature is an individual measurable property or characteristic of the data that is used by a machine learning model."
+    },
+    {
+        "question": "What is a label in machine learning?",
+        "answer": "A label is the target or expected output associated with an input in supervised learning."
+    },
+    {
+        "question": "What is precision?",
+        "answer": "Precision measures how many of the instances predicted as positive are actually positive."
+    },
+    {
+        "question": "What is recall?",
+        "answer": "Recall measures how many of the actual positive instances are correctly identified by the model."
+    },
+    {
+        "question": "What is a confusion matrix?",
+        "answer": "A confusion matrix is a table used to evaluate a classification model by showing correct and incorrect predictions for different classes."
+    },
+    {
+        "question": "What is an activation function?",
+        "answer": "An activation function determines the output of a neuron in a neural network and helps the network learn complex patterns."
+    },
+    {
+        "question": "What is backpropagation?",
+        "answer": "Backpropagation is an algorithm used to train neural networks by calculating errors and updating model weights to reduce the error."
+    },
+    {
+        "question": "What is LSTM?",
+        "answer": "LSTM stands for Long Short-Term Memory. It is a type of recurrent neural network designed to learn long-term dependencies in sequential data."
+    },
+    {
+        "question": "What is generative AI?",
+        "answer": "Generative AI is a type of artificial intelligence that can create new content such as text, images, audio, or code."
+    },
+    {
+        "question": "What is a large language model?",
+        "answer": "A large language model is an AI model trained on large amounts of text data to understand and generate human-like language."
+    }
+]
