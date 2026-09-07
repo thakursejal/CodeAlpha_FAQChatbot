@@ -2,6 +2,10 @@
 
 An NLP-based FAQ chatbot developed as part of the CodeAlpha Artificial Intelligence Internship.
 
+## 🚀 Live Demo
+
+Try the chatbot online: https://huggingface.co/spaces/Thakur-sejal18/CodeAlpha_FAQChatbot
+
 ## 📌 Project Overview
 
 This chatbot answers frequently asked questions related to Artificial Intelligence, Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, and Chatbots.
@@ -40,7 +44,7 @@ The system uses Natural Language Processing, TF-IDF vectorization, and Cosine Si
 - 🔍 Cosine similarity matching
 - 🛡️ Fallback handling for unrelated questions
 - 💬 Interactive Gradio interface
-- 📚 30 AI/ML FAQs
+- 📚 45 AI/ML FAQs
 
 ## 🛠️ Technologies Used
 
@@ -57,13 +61,22 @@ The system uses Natural Language Processing, TF-IDF vectorization, and Cosine Si
 The chatbot covers topics including:
 
 - Artificial Intelligence
+- AI Models
 - Machine Learning
 - Supervised Learning
 - Unsupervised Learning
 - Reinforcement Learning
+- Classification
+- Regression
+- Training and Testing Data
+- Datasets
+- Features and Labels
 - Deep Learning
 - Neural Networks
 - CNN
+- Activation Functions
+- Backpropagation
+- LSTM
 - Natural Language Processing
 - Text Preprocessing
 - Tokenization
@@ -72,11 +85,21 @@ The chatbot covers topics including:
 - Computer Vision
 - Image Classification
 - Object Detection
+- Model Evaluation
+- Precision and Recall
+- Confusion Matrix
+- Overfitting and Underfitting
+- Epochs
+- Generative AI
+- Large Language Models (LLMs)
 - Chatbots
 
 ## 🚀 How to Run
 
 Install the required dependencies:
 
-```bash
-pip install -r requirements.txt
+    pip install -r requirements.txt
+
+Run the chatbot:
+
+    python app.py
