@@ -1,4 +1,3 @@
-import re
 import gradio as gr
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -81,7 +80,18 @@ faq_data = [
         "question": "What is natural language processing?",
         "answer": "Natural Language Processing (NLP) is a field of AI that enables computers to process, understand, and work with human language."
     },
-    ,
+    {
+        "question": "What is NLP?",
+        "answer": "NLP stands for Natural Language Processing. It allows computers to understand, process, and generate human language."
+    },
+    {
+        "question": "What is computer vision?",
+        "answer": "Computer Vision is a field of AI that enables computers to understand and analyze images and videos."
+    },
+    {
+        "question": "What is a chatbot?",
+        "answer": "A chatbot is a software application that interacts with users through natural language and provides automated responses."
+    },
     {
         "question": "What is a dataset?",
         "answer": "A dataset is a collection of data used to train, test, and evaluate machine learning models."
@@ -141,5 +151,101 @@ faq_data = [
     {
         "question": "What is a large language model?",
         "answer": "A large language model is an AI model trained on large amounts of text data to understand and generate human-like language."
+    },
+    {
+        "question": "What is TF-IDF?",
+        "answer": "TF-IDF stands for Term Frequency-Inverse Document Frequency. It is a technique used to represent text numerically based on the importance of words."
+    },
+    {
+        "question": "What is cosine similarity?",
+        "answer": "Cosine similarity measures how similar two text vectors are by calculating the cosine of the angle between them."
     }
 ]
+
+
+# ============================================================
+# PREPARE FAQ MODEL
+# ============================================================
+
+questions = [item["question"] for item in faq_data]
+answers = [item["answer"] for item in faq_data]
+
+vectorizer = TfidfVectorizer(
+    lowercase=True,
+    stop_words="english"
+)
+
+faq_vectors = vectorizer.fit_transform(questions)
+
+
+# ============================================================
+# CHATBOT FUNCTION
+# ============================================================
+
+def chatbot(user_question):
+
+    if not user_question or not user_question.strip():
+        return "Please enter a question so I can help you. 😊"
+
+    user_question = user_question.strip()
+
+    # Convert user question into TF-IDF vector
+    user_vector = vectorizer.transform([user_question])
+
+    # Calculate similarity with all FAQ questions
+    similarities = cosine_similarity(
+        user_vector,
+        faq_vectors
+    )[0]
+
+    # Find the most similar question
+    best_match_index = similarities.argmax()
+    best_score = similarities[best_match_index]
+
+    # Confidence threshold
+    if best_score < 0.25:
+        return (
+            "Sorry, I couldn't find a suitable answer to that question. "
+            "Please try asking something related to Artificial Intelligence "
+            "or Machine Learning."
+        )
+
+    return answers[best_match_index]
+
+
+# ============================================================
+# GRADIO INTERFACE
+# ============================================================
+
+demo = gr.Interface(
+    fn=chatbot,
+    inputs=gr.Textbox(
+        label="💬 Your Question",
+        placeholder="Ask me anything about AI & Machine Learning...",
+        lines=2
+    ),
+    outputs=gr.Textbox(
+        label="🤖 Chatbot Answer",
+        lines=5
+    ),
+    title="🤖 CodeAlpha AI & ML FAQ Chatbot",
+    description=(
+        "NLP-based FAQ chatbot using TF-IDF and Cosine Similarity"
+    ),
+    examples=[
+        ["What is artificial intelligence?"],
+        ["What is machine learning?"],
+        ["What is NLP?"],
+        ["What is TF-IDF?"],
+        ["What is computer vision?"],
+        ["What is a chatbot?"]
+    ]
+)
+
+
+# ============================================================
+# LAUNCH
+# ============================================================
+
+if __name__ == "__main__":
+    demo.launch()
