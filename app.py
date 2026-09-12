@@ -161,14 +161,6 @@ faq_data = [
         "answer": "Cosine similarity measures how similar two text vectors are by calculating the cosine of the angle between them."
     },
     {
-    "question": "What is computer vision?",
-    "answer": "Computer Vision is a field of AI that enables computers to understand and analyze images and videos."
-    },
-    {
-    "question": "What is a chatbot?",
-    "answer": "A chatbot is a software application that interacts with users through natural language and provides automated responses."
-    },
-    {
     "question": "What is an AI algorithm?",
     "answer": "An AI algorithm is a set of computational steps used to process data, identify patterns, and make predictions or decisions."
     },
