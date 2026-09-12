@@ -44,7 +44,7 @@ The system uses Natural Language Processing, TF-IDF vectorization, and Cosine Si
 - 🔍 Cosine similarity matching
 - 🛡️ Fallback handling for unrelated questions
 - 💬 Interactive Gradio interface
-- 📚 45 AI/ML FAQs
+- 📚 40 AI/ML FAQs
 
 ## 🛠️ Technologies Used
 
